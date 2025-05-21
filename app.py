@@ -259,7 +259,7 @@ def set_bg_from_url(url, opacity=1):
     <footer>
         <div style='visibility: visible;margin-top:7rem;justify-content:center;display:flex;'>
             
-        </div>
+        
     </footer>
 """
     st.markdown(footer, unsafe_allow_html=True)
