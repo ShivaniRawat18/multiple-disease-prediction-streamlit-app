@@ -74,23 +74,13 @@ if (selected == 'Diabetes Prediction'):
     # creating a button for Prediction
     
     if st.button('Diabetes Test Result'):
-        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
-        # Example conversion with fallback or error handling
-        
-             
-
-#        diab_prediction = diabetes_model.predict([[int(Pregnancies), int(Glucose), int(BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
-
-
-        
-    if any(val == 0 for val in [Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]):
-        st.error("Please enter all values")
-    else:
-        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
-        diab_diagnosis = 'The person is diabetic' if diab_prediction[0] == 1 else 'The person is not diabetic'
-        
-        
-    st.success(diab_diagnosis)
+        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]]) 
+        if any(val == 0 for val in [Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]):
+            st.error("Please enter all values")
+        else:
+            diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+            diab_diagnosis = 'The person is diabetic' if diab_prediction[0] == 1 else 'The person is not diabetic'
+            st.success(diab_diagnosis)
 
 
 
@@ -146,18 +136,18 @@ if (selected == 'Heart Disease Prediction'):
      
      
     # code for Prediction
-    heart_diagnosis = ''
     
     # creating a button for Prediction
     
-if st.button('Heart Disease Test Result'):
-    inputs = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
-    if any(val is None for val in inputs):
-        st.error("Please enter all values")
-    else:
-        heart_prediction = heart_disease_model.predict([inputs])
-        heart_diagnosis = 'The person is having heart disease' if heart_prediction[0] == 1 else 'The person does not have any heart disease'
-        st.success(heart_diagnosis)
+    if st.button('Heart Disease Test Result'):
+        inputs = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
+        if any(val is None for val in inputs):
+            st.error("Please enter all values")
+        else:
+            heart_prediction = heart_disease_model.predict([inputs])
+            heart_diagnosis = 'The person is having heart disease' if heart_prediction[0] == 1 else 'The person does not have any heart disease'
+            st.success(heart_diagnosis)
+
         
     
     
@@ -242,15 +232,16 @@ if (selected == "Parkinsons Prediction"):
     parkinsons_diagnosis = ''
     
     # creating a button for Prediction    
-if st.button("Parkinson's Test Result"):
-    inputs = [fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP, Shimmer, Shimmer_dB,
-              APQ3, APQ5, APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
-    if any(val is None for val in inputs):
-        st.error("Please enter all values")
-    else:
-        parkinsons_prediction = parkinsons_model.predict([inputs])
-        parkinsons_diagnosis = "The person has Parkinson's disease" if parkinsons_prediction[0] == 1 else "The person does not have Parkinson's disease"
-        st.success(parkinsons_diagnosis)
+    if st.button("Parkinson's Test Result"):
+        inputs = [fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP, Shimmer, Shimmer_dB,
+                  APQ3, APQ5, APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
+        if any(val is None for val in inputs):
+            st.error("Please enter all values")
+        else:
+            parkinsons_prediction = parkinsons_model.predict([inputs])
+            parkinsons_diagnosis = "The person has Parkinson's disease" if parkinsons_prediction[0] == 1 else "The person does not have Parkinson's disease"
+            st.success(parkinsons_diagnosis)
+
 
 
 def set_bg_from_url(url, opacity=1):
