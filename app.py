@@ -44,28 +44,28 @@ if (selected == 'Diabetes Prediction'):
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        Pregnancies = st.number_input('Number of Pregnancies', min_value=0, step=1, format="%d")
+        Pregnancies = st.number_input('Number of Pregnancies', min_value=0, step=1, format="%d", value= None)
         
     with col2:
-        Glucose = st.number_input('Glucose Level', min_value=0, step=1, format="%d")
+        Glucose = st.number_input('Glucose Level', min_value=0, step=1, format="%d", value= None)
     
     with col3:
-        BloodPressure = st.number_input('Blood Pressure value', min_value=0, step=1, format="%d")
+        BloodPressure = st.number_input('Blood Pressure value', min_value=0, step=1, format="%d", value= None)
     
     with col1:
-        SkinThickness = st.number_input('Skin Thickness value', min_value=0, step=1, format="%d")
+        SkinThickness = st.number_input('Skin Thickness value', min_value=0, step=1, format="%d", value= None)
     
     with col2:
-        Insulin = st.number_input('Insulin Level', min_value=0, step=1, format="%d")
+        Insulin = st.number_input('Insulin Level', min_value=0, step=1, format="%d", value= None)
     
     with col3:
-        BMI = st.number_input('BMI value')
+        BMI = st.number_input('BMI value', value= None)
     
     with col1:
-        DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function value')
+        DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function value', value= None)
     
     with col2:
-        Age = st.number_input('Age of the Person', min_value=0, step=1, format="%d")
+        Age = st.number_input('Age of the Person', min_value=0, step=1, format="%d", value= None)
     
     
     # code for Prediction
