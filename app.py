@@ -242,15 +242,16 @@ if (selected == "Parkinsons Prediction"):
     parkinsons_diagnosis = ''
     
     # creating a button for Prediction    
-    if st.button("Parkinson's Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
-        
-        if (float(parkinsons_prediction[0]) == 1):
-          parkinsons_diagnosis = "The person has Parkinson's disease"
-        else:
-          parkinsons_diagnosis = "The person does not have Parkinson's disease"
-        
+if st.button("Parkinson's Test Result"):
+    inputs = [fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP, Shimmer, Shimmer_dB,
+              APQ3, APQ5, APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
+    if any(val is None for val in inputs):
+        st.error("Please enter all values")
+    else:
+        parkinsons_prediction = parkinsons_model.predict([inputs])
+        parkinsons_diagnosis = "The person has Parkinson's disease" if parkinsons_prediction[0] == 1 else "The person does not have Parkinson's disease"
         st.success(parkinsons_diagnosis)
+
 
 def set_bg_from_url(url, opacity=1):
     
