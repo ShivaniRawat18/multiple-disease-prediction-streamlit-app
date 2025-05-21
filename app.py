@@ -44,28 +44,28 @@ if (selected == 'Diabetes Prediction'):
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        Pregnancies = st.number_input('Number of Pregnancies', min_value=0, step=1, format="%d", value= None)
+        Pregnancies = st.number_input('Number of Pregnancies', min_value=0, step=1, format="%d")
         
     with col2:
-        Glucose = st.number_input('Glucose Level', min_value=0, step=1, format="%d", value= None)
+        Glucose = st.number_input('Glucose Level', min_value=0, step=1, format="%d")
     
     with col3:
-        BloodPressure = st.number_input('Blood Pressure value', min_value=0, step=1, format="%d", value= None)
+        BloodPressure = st.number_input('Blood Pressure value', min_value=0, step=1, format="%d")
     
     with col1:
-        SkinThickness = st.number_input('Skin Thickness value', min_value=0, step=1, format="%d", value= None)
+        SkinThickness = st.number_input('Skin Thickness value', min_value=0, step=1, format="%d")
     
     with col2:
-        Insulin = st.number_input('Insulin Level', min_value=0, step=1, format="%d", value= None)
+        Insulin = st.number_input('Insulin Level', min_value=0, step=1, format="%d")
     
     with col3:
-        BMI = st.number_input('BMI value', value= None)
+        BMI = st.number_input('BMI value')
     
     with col1:
-        DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function value', value= None)
+        DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function value')
     
     with col2:
-        Age = st.number_input('Age of the Person', min_value=0, step=1, format="%d", value= None)
+        Age = st.number_input('Age of the Person', min_value=0, step=1, format="%d")
     
     
     # code for Prediction
@@ -259,7 +259,7 @@ def set_bg_from_url(url, opacity=1):
     <footer>
         <div style='visibility: visible;margin-top:7rem;justify-content:center;display:flex;'>
             
-        </div>
+     
     </footer>
 """
     st.markdown(footer, unsafe_allow_html=True)
